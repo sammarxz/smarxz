@@ -23,7 +23,7 @@ type AnimatedLinesProps = {
   children: string 
 }
 
-function AnimatedLines ({ delay, children } : AnimatedLinesProps) {
+const AnimatedLines = ({ delay, children } : AnimatedLinesProps) => {
   const divRef = useRef<HTMLDivElement>(null)
   const [lines, setLines] = useState<string[]>([])
   

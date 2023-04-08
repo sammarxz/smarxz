@@ -1,6 +1,6 @@
 import { AnimatedLines } from '@/components/AnimatedLines'
 
-function Header() {
+const Header = () => {
   return (
     <header className='grid'>
       <h1 className='col-1-1'>
