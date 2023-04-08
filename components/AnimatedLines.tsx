@@ -67,14 +67,14 @@ const AnimatedLines = ({ delay, children } : AnimatedLinesProps) => {
       {lines.map((line, index) => (
         <motion.div
           key={line} 
-          className="lines__line"
+          className="o--hidden"
         >
           <motion.span 
             variants={lineAnim}
             initial="initial" 
             animate="animate"
             custom={delay * index}
-            className="lines__line__content"
+            className="d--inline-block"
           >
             {line}
           </motion.span>

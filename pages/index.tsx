@@ -1,6 +1,7 @@
 import Head from 'next/head'
 
-import { SmoothScroll, Header } from '@/components'
+
+import { SmoothScroll, Header, Projects } from '@/components'
 
 export default function Home() {
   return (
@@ -12,8 +13,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <SmoothScroll>
-        <main className='container'>
-          <Header />
+        <Header />
+        <main>
+          <Projects />
         </main>
       </SmoothScroll>
     </>
