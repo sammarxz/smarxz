@@ -1,9 +1,19 @@
+import { useEffect } from 'react';
 import Head from 'next/head'
+import { isBrowser } from 'framer-motion';
 
-
-import { SmoothScroll, Header, Projects } from '@/components'
+import { Header, Projects } from '@/components'
 
 export default function Home() {
+  useEffect(() => {
+    if (!isBrowser) return;
+    window.location.replace("#");
+
+    if (typeof window.history.replaceState == 'function') {
+      history.replaceState({}, '', window.location.href.slice(0, -1));
+    }
+  }, [])
+
   return (
     <>
       <Head>
@@ -12,12 +22,12 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <SmoothScroll>
+      <>
         <Header />
-        <main>
+        <main className='main container container--large'>
           <Projects />
         </main>
-      </SmoothScroll>
+      </>
     </>
   )
 }

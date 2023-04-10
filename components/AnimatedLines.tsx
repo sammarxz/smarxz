@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion, stagger } from 'framer-motion'
 
 const lineAnim = {
   initial: { 
@@ -56,8 +56,6 @@ const AnimatedLines = ({ delay, children } : AnimatedLinesProps) => {
       setLines(newLines);
     }
   }, [children, divRef])
-
-  console.log(lines)
 
   return (
     <motion.div 
