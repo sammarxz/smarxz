@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import Head from 'next/head'
 import { isBrowser } from 'framer-motion';
 
-import { Header, Projects } from '@/components'
+import { Header, Projects, ScrollToTopButton } from '@/components'
 
 export default function Home() {
   useEffect(() => {
@@ -24,9 +24,8 @@ export default function Home() {
       </Head>
       <>
         <Header />
-        <main className='main container container--large'>
-          <Projects />
-        </main>
+        <Projects />
+        <ScrollToTopButton />
       </>
     </>
   )

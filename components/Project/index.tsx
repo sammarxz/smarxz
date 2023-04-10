@@ -2,6 +2,10 @@ import { motion } from 'framer-motion'
 
 import { ProjectLink } from '@/components'
 
+import { slugify } from '@/utils'
+
+import styles from './styles.module.css'
+
 type ProjectProps = {
   id: number
   title: string
@@ -12,17 +16,21 @@ type ProjectProps = {
 }
 
 const Project = ({ id, title, description, link, bg, index } : ProjectProps) => {
+  const slug = slugify(title)
+
   return (
     <>
       <ProjectLink
         key={id}
-        id={id} 
+        slug={slug}
+        bg={bg}
         index={index} 
       />
       <motion.article
         key={id}
-        id={`project-${id}`}
-        className={`project bg--${bg}`}
+        id={slug}
+        className={`${styles.project}`}
+        style={{ "--bg": bg } as React.CSSProperties}
         initial={{ opacity: 0, visibility: 'hidden' }}
         animate={{ 
           opacity: 1, 
@@ -33,7 +41,7 @@ const Project = ({ id, title, description, link, bg, index } : ProjectProps) => 
         }}
       >
         <motion.div
-          className='project__info container container--medium d--grid five--cols gap--medium pt--0'
+          className={`${styles.info} container container--md grid pt--0`}
           initial={{ opacity: 0 }}
           whileInView={{ 
             opacity: 1,
@@ -44,12 +52,12 @@ const Project = ({ id, title, description, link, bg, index } : ProjectProps) => 
           }}
           viewport={{ once: true }}
         >
-          <h1>{ title }</h1>
-          <div className="col-2">
-            <p className="opacity--7">{description}</p>
+          <h1 className='grid--title mb--md'>{ title }</h1>
+          <div className="col-2 mb--md">
+            <p className={`${styles.description} grid--description`}>{description}</p>
           </div>
           {link ? (
-              <div className='col-1-5'>
+            <div className='grid--link'>
               <a 
                 href={link}
                 target="_blank"
@@ -57,9 +65,7 @@ const Project = ({ id, title, description, link, bg, index } : ProjectProps) => 
                 Live Preview
               </a>
             </div>
-          ) : ( 
-            null
-          )}
+          ) : null}
         </motion.div>
       </motion.article>
     </>

@@ -1,12 +1,12 @@
-import { LayoutGroup } from 'framer-motion'
-
 import { Project } from '@/components'
 
 import { projects } from '@/data/projects'
 
+import styles from './styles.module.css'
+
 const Projects = () => {
   return (
-    <LayoutGroup id="projects">
+    <section className={`${styles.projects} container container--lg`}>
       {projects.map(({ id, title, description, link, bg }, index) => (
         <>
           <Project
@@ -20,7 +20,7 @@ const Projects = () => {
           />
         </>
       ))}
-    </LayoutGroup>
+    </section>
   )
 }
 

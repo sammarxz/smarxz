@@ -1,6 +1,7 @@
+export { SmoothScroll } from './SmoothScroll'
 export { Header } from './Header'
 export { AnimatedLines } from './AnimatedLines'
-export { SmoothScroll } from './SmoothScroll'
 export { Projects } from './Projects'
 export { Project } from './Project'
 export { ProjectLink } from './ProjectLink'
+export { ScrollToTopButton } from './ScrollToTopButton'

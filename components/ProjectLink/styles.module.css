@@ -1,0 +1,21 @@
+.projectLink {
+  background-color: var(--bg);
+  display: block;
+  position: sticky;
+  height: var(--base-unit);
+  cursor: pointer;
+  bottom: calc(var(--base-unit) * var(--index));
+  z-index: 3;
+}
+
+.projectLink:after {
+  content: '';
+  background-color: var(--bg);
+  display: block;
+  height: var(--base-unit);
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}

@@ -1,0 +1,9 @@
+.projects {
+  margin-top: calc(100vh - (var(--base-unit) * 3));
+}
+
+@media (min-width: 550px) {
+  .projects {
+    margin-top: calc(100vh - (var(--base-unit) * 4));
+  }
+}
