@@ -1,10 +1,19 @@
+import { motion, useScroll, useTransform } from 'framer-motion'
+
 import { AnimatedLines } from '@/components'
 
 import styles from './styles.module.css'
 
 const Header = () => {
+  const { scrollYProgress } = useScroll();
+  const multiplier = useTransform(scrollYProgress, (v) => v * 5.5)
+  const inversor = useTransform(multiplier, [0,1], [1, 0])
+
   return (
-    <header className={`${styles.header} grid container container--md`}>
+    <motion.header 
+      className={`${styles.header} grid container container--md`}
+      style={{ opacity: inversor }}
+    >
       <h1 className='grid--title mb--md'>
         <AnimatedLines delay={0}>Sam Marxz.</AnimatedLines>
       </h1>
@@ -24,7 +33,7 @@ const Header = () => {
           <AnimatedLines delay={4}>Get in touch.</AnimatedLines>
         </a>
       </div>
-    </header>
+    </motion.header>
   )
 }
 
