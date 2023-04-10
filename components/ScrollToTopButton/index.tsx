@@ -14,6 +14,15 @@ import styles from './styles.module.css'
 const ScrollToTopContainerVariants: Variants = {
   hide: { opacity: 0 },
   show: { opacity: 1 },
+  hover: { 
+    scale: 1.1,
+    transition: {
+      type: "spring"
+    }
+  },
+  tap: {
+    scale: 0.9
+  }
 };
 
 const ScrollToTopButton = () => {
@@ -37,6 +46,8 @@ const ScrollToTopButton = () => {
       initial="hide"
       animate={controls}
       onClick={scrollToTop}
+      whileHover="hover"
+      whileTap="tap"
     >
       <span>Back to top</span>
       <AiOutlineArrowUp />

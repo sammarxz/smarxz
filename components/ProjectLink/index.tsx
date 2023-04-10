@@ -27,6 +27,15 @@ const linksAnim = {
         ease: [0.6, 0.01, -0.05, 0.95],
       }
     }
+  },
+  hover: {
+    y: -20,
+    transition: {
+      type: "spring",
+      duration: .5,
+      damping: 5,
+      bounce: .20
+    }
   }
 }
 
@@ -45,6 +54,7 @@ const ProjectLink = ({ slug, bg, index }: ProjectsLinkProps) => {
           } as React.CSSProperties }
           initial="initial"
           animate="animate"
+          whileHover="hover"
           variants={linksAnim}
           custom={index + 1}
         ></motion.a>
