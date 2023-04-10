@@ -4,9 +4,10 @@ import {
   useAnimationControls, 
   useScroll, 
   Variants, 
-  isBrowser 
 } from "framer-motion";
 import { AiOutlineArrowUp } from 'react-icons/ai'
+
+import { scrollToTop } from "@/utils";
 
 import styles from './styles.module.css'
 
@@ -15,12 +16,7 @@ const ScrollToTopContainerVariants: Variants = {
   show: { opacity: 1 },
 };
 
-function scrollToTop() {
-    if (!isBrowser) return;
-    window.scrollTo({ top: 0 });
-}
-
-function ScrollToTopButton() {
+const ScrollToTopButton = () => {
   const { scrollYProgress } = useScroll();
   const controls = useAnimationControls();
 
