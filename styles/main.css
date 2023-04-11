@@ -171,6 +171,10 @@ ol,ul {
   padding: 0;
 }
 
+.txt--center {
+  text-align: center;
+}
+
 
 /* MEDIA QUERIES */
 

@@ -32,7 +32,10 @@ const Project = ({ id, title, description, link, bg, textColor, index } : Projec
       <motion.article
         key={id}
         id={slug}
-        className={`${styles.project} container container--${containersScales[index]} p--0`}
+        className={`
+          ${styles.project} 
+          container container--${containersScales[index]} 
+        `}
         style={{ 
           "--bg": bg,
           "color": textColor

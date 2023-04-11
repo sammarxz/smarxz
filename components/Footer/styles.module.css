@@ -1,0 +1,6 @@
+.footer {
+  position: fixed;
+  bottom: var(--base-unit);
+  left: 0;
+  right: 0;
+}
