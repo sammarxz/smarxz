@@ -8,6 +8,7 @@ type ProjectsLinkProps = {
   slug: string
   index: number
   bg: string
+  scales: string[]
 }
 
 const linksAnim = {
@@ -39,7 +40,7 @@ const linksAnim = {
   }
 }
 
-const ProjectLink = ({ slug, bg, index }: ProjectsLinkProps) => {
+const ProjectLink = ({ slug, bg, scales, index }: ProjectsLinkProps) => {
   const invertedArrayIndexes = Array.from({ length: projects.length }, (value, i) => i).reverse()
 
   return (
@@ -47,10 +48,10 @@ const ProjectLink = ({ slug, bg, index }: ProjectsLinkProps) => {
       {index + 1 <= projects.length && (
         <motion.a
           href={`#${slug}`} 
-          className={`${styles.projectLink} bg--${projects[index].bg} rounded--top`}
+          className={`${styles.projectLink} container container--${scales[index]} bg--${projects[index].bg} rounded--top p--0`}
           style={{ 
             "--index": invertedArrayIndexes[index],
-            "--bg": bg
+            "--bg": bg,
           } as React.CSSProperties }
           initial="initial"
           animate="animate"

@@ -1,0 +1,27 @@
+.getInTouch {
+  width: 140px;
+  text-align: left;
+}
+
+.list {
+  margin-top: 12px;
+}
+
+.item {
+  line-height: 2;
+}
+
+@media (min-width: 550px) {
+  .item {
+    line-height: 1.5;
+  }
+}
+
+.link {
+  display: inline-block;
+  position: relative;
+}
+
+.link:hover:after {
+  content: ' 🡥'
+}

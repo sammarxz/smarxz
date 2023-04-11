@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 
-import { AnimatedLines } from '@/components'
+import { AnimatedLines, GetInTouch } from '@/components'
 
 import styles from './styles.module.css'
 
@@ -11,7 +11,7 @@ const Header = () => {
 
   return (
     <motion.header 
-      className={`${styles.header} grid container container--md`}
+      className={`${styles.header} grid container container--sm`}
       style={{ opacity: inversor }}
     >
       <h1 className='grid--title mb--md'>
@@ -29,9 +29,7 @@ const Header = () => {
         </h4>
       </div>
       <div className='grid--link'>
-        <a href="#contact">
-          <AnimatedLines delay={4}>Get in touch.</AnimatedLines>
-        </a>
+        <GetInTouch  />
       </div>
     </motion.header>
   )

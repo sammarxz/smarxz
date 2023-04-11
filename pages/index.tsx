@@ -29,6 +29,9 @@ export default function Home() {
         <Header />
         <Projects />
         <ScrollToTopButton />
+        <footer>
+          <p>lore</p>
+        </footer>
       </>
     </>
   )

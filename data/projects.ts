@@ -5,6 +5,7 @@ const projects = [
     description: 'Project Description',
     link: 'https://localhost:3000/',
     bg: '#66347F',
+    text: '#fff'
   },
   {
     id: 2,
@@ -12,12 +13,14 @@ const projects = [
     description: 'Project Description',
     link: 'https://localhost:3000/',
     bg: '#9E4784',
+    text: '#fff'
   },
   {
     id: 3,
     title: 'Project Title 3',
     description: 'Project Description',
     bg: '#D27685',
+    text: '#fff'
   },
 ]
 

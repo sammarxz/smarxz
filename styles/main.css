@@ -4,7 +4,7 @@
 
   --font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
 
-  --base-unit: 6vw;
+  --base-unit: 6vh;
   --border-radius: 16px;
   --grid-cols: 1;
 }
@@ -64,10 +64,15 @@ html, body, input, textarea, button {
 
 html,
 body {
-  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5;;
   color: var(--font);
   background-color: var(--bg);
   caret-color: var(--font);
+}
+
+body {
+  padding-bottom: calc(var(--base-unit) * 2)
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -81,8 +86,10 @@ a {
 }
 
 button {
+  cursor: pointer;
   border: none;
   width: auto;
+  font: inherit;
   background: transparent;
   color: inherit;
   line-height: normal;
@@ -91,22 +98,29 @@ button {
   -webkit-appearance: none;
 }
 
+ol,ul {
+  list-style: none;
+}
+
 
 /* LAYOUT */
 
 .container {
   margin: 0 auto;
   position: relative;
-}
-
-.container--md {
-  max-width: 1360px;
   padding: var(--base-unit);
 }
 
+.container--sm {
+  max-width: 1380px;
+}
+
+.container--md {
+  max-width: 1480px;
+}
+
 .container--lg {
-  max-width: 1660px;
-  padding: 0;
+  max-width: 1580px;
 }
 
 .grid {
@@ -132,6 +146,10 @@ button {
   overflow: hidden;
 }
 
+.d--block {
+  display: block;
+}
+
 .d--inline-block {
   display: inline-block;
 }
@@ -149,23 +167,24 @@ button {
   padding-top: 0 ;
 }
 
+.p--0 {
+  padding: 0;
+}
+
 
 /* MEDIA QUERIES */
 
 @media (min-width: 550px) {
   :root {
+    --base-unit: 6vh;
     --border-radius: 2vw;
-    --grid-cols: 5;
+    --grid-cols: 12;
   }
 
   .grid {
     display: grid;
     grid-template-columns: repeat(var(--grid-cols), 1fr);
     grid-template-areas:
-    "title description . . link"
-  }
-
-  .container--lg {
-    padding: var(--base-unit);
+    "title . description description . . . . . link"
   }
 }

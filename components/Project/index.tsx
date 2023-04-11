@@ -12,11 +12,13 @@ type ProjectProps = {
   description: string
   link?: string
   bg: string
+  textColor: string
   index: number
 }
 
-const Project = ({ id, title, description, link, bg, index } : ProjectProps) => {
+const Project = ({ id, title, description, link, bg, textColor, index } : ProjectProps) => {
   const slug = slugify(title)
+  const containersScales = ["sm", "md", "lg"]
 
   return (
     <>
@@ -24,13 +26,17 @@ const Project = ({ id, title, description, link, bg, index } : ProjectProps) => 
         key={id}
         slug={slug}
         bg={bg}
-        index={index} 
+        index={index}
+        scales={containersScales} 
       />
       <motion.article
         key={id}
         id={slug}
-        className={`${styles.project}`}
-        style={{ "--bg": bg } as React.CSSProperties}
+        className={`${styles.project} container container--${containersScales[index]} p--0`}
+        style={{ 
+          "--bg": bg,
+          "color": textColor
+        } as React.CSSProperties}
         initial={{ opacity: 0, visibility: 'hidden' }}
         animate={{ 
           opacity: 1, 
@@ -41,7 +47,7 @@ const Project = ({ id, title, description, link, bg, index } : ProjectProps) => 
         }}
       >
         <motion.div
-          className={`${styles.info} container container--md grid pt--0`}
+          className={`${styles.info} container container--${containersScales[index]} grid pt--0`}
           initial={{ opacity: 0 }}
           whileInView={{ 
             opacity: 1,
@@ -53,8 +59,8 @@ const Project = ({ id, title, description, link, bg, index } : ProjectProps) => 
           viewport={{ once: true }}
         >
           <h1 className='grid--title mb--md'>{ title }</h1>
-          <div className="col-2 mb--md">
-            <p className={`${styles.description} grid--description`}>{description}</p>
+          <div className="grid--description mb--md">
+            <p className={styles.description}>{description}</p>
           </div>
           {link ? (
             <div className='grid--link'>
