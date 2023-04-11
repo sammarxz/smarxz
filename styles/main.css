@@ -137,6 +137,7 @@ ol,ul {
 
 .grid--link {
   grid-area: link;
+  text-align: left;
 }
 
 
@@ -189,6 +190,10 @@ ol,ul {
     display: grid;
     grid-template-columns: repeat(var(--grid-cols), 1fr);
     grid-template-areas:
-    "title . description description . . . . . link"
+    "title . description description . . . . . . link link"
+  }
+
+  .grid--link {
+    text-align: right;
   }
 }

@@ -1,10 +1,17 @@
 .getInTouch {
-  width: 140px;
+  width: 100%;
   text-align: left;
+}
+
+@media (min-width: 550px) {
+  .getInTouch {
+    text-align: right;
+  }
 }
 
 .list {
   margin-top: 12px;
+  /* text-align: left; */
 }
 
 .item {

@@ -34,7 +34,7 @@ const Project = ({ id, title, description, link, bg, textColor, index } : Projec
         id={slug}
         className={`
           ${styles.project} 
-          container container--${containersScales[index]} 
+          container container--${containersScales[index]} pt--0
         `}
         style={{ 
           "--bg": bg,
@@ -50,7 +50,7 @@ const Project = ({ id, title, description, link, bg, textColor, index } : Projec
         }}
       >
         <motion.div
-          className={`${styles.info} container container--${containersScales[index]} grid pt--0`}
+          className={`${styles.info} grid pt--0`}
           initial={{ opacity: 0 }}
           whileInView={{ 
             opacity: 1,
