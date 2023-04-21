@@ -1,5 +1,14 @@
 import { useRef, useEffect, useState } from 'react'
-import { motion, stagger } from 'framer-motion'
+import { motion } from 'framer-motion'
+
+const banner = {
+  animate: {
+    transition: {
+      delayChildren: 0.4,
+      staggerChildren: 0.1
+    }
+  }
+}
 
 const lineAnim = {
   initial: { 
@@ -12,25 +21,25 @@ const lineAnim = {
       transition: {
         delay,
         ease: [0.6, 0.01, -0.05, 0.95],
-        duration: 1.4,
+        duration: 1,
       }
     }
   },
 };
 
 type AnimatedLinesProps = {
-  delay: number
-  children: string 
+  delay?: number
+  text: string 
 }
 
-const AnimatedLines = ({ delay, children } : AnimatedLinesProps) => {
+const AnimatedLines = ({ text, delay = 0 } : AnimatedLinesProps) => {
   const divRef = useRef<HTMLDivElement>(null)
   const [lines, setLines] = useState<string[]>([])
   
   useEffect(() => {
     if (divRef.current) {
       const div = divRef.current;
-      const words = children.split(' ');
+      const words = text.split(' ');
       const maxWidth = div.clientWidth;
 
       let actualWidth = 0;
@@ -55,12 +64,15 @@ const AnimatedLines = ({ delay, children } : AnimatedLinesProps) => {
   
       setLines(newLines);
     }
-  }, [children, divRef])
+  }, [text, divRef])
 
   return (
     <motion.div 
       ref={divRef}
-      className='lines'
+      className='lines o--hidden'
+      variants={banner}
+      initial="initial"
+      animate="animate"
     >
       {lines.map((line, index) => (
         <motion.div
@@ -71,7 +83,7 @@ const AnimatedLines = ({ delay, children } : AnimatedLinesProps) => {
             variants={lineAnim}
             initial="initial" 
             animate="animate"
-            custom={delay * index}
+            custom={delay + index}
             className="d--inline-block"
           >
             {line}

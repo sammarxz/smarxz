@@ -1,3 +1,15 @@
 .projects {
-  margin-top: calc(100vh - (var(--base-unit) * var(--project-count)));
+  padding: 40vh .625rem 0
+}
+
+@media screen and (min-width: 734px) {
+  .projects {
+    padding: 55vh .625rem 0;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .projects {
+    padding: 90vh .625rem 0;
+  }
 }

@@ -1,7 +1,32 @@
 .header {
-  position: fixed;
-  top: var(--base-unit);
-  right: 0;
-  left: 0;
-  z-index: 0;
+  width: 100%;
+  margin-top: 3.125rem;
+  display: flex;
+  flex-direction: column;
+  z-index: 9999;
+}
+
+@media screen and (min-width: 734px) {
+  .header {
+    margin-top: 4.625rem;
+    flex-direction: row;
+    position: relative;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .header {
+    margin-top: 8.125rem;
+    position: fixed;
+    left: 0;
+    right: 0;
+  }
+}
+
+.scrollRef {
+  height: 100px;
+}
+
+.header h2 {
+  max-width: 180px;
 }

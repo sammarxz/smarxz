@@ -58,7 +58,8 @@ const ProjectLink = ({ slug, bg, scales, index }: ProjectsLinkProps) => {
           whileHover="hover"
           variants={linksAnim}
           custom={index + 1}
-        ></motion.a>
+        >
+        </motion.a>
       )}
     </>
   )

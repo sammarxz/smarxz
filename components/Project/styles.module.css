@@ -1,36 +1,10 @@
 .project {
-  background-color: var(--bg);
-  height: 100vh;
-  position: relative;
-  z-index: 3;
+  margin-bottom: .625rem;
+  text-align: center;;
+  width: 100%;
 }
 
-.project:after {
-  content: '';
-  background-color: var(--bg);
-  display: block;
-  height: var(--base-unit);
-  position: absolute;
-  bottom: calc(var(--base-unit) * -1);
-  left: 0;
-  right: 0;
-  z-index: -1;
-}
-
-.project:last-child {
-  border-bottom-left-radius: var(--border-radius);
-  border-bottom-right-radius: var(--border-radius);
-}
-
-.project:last-child:after {
-  content: none;
-}
-
-.info {
-  position: sticky;
-  top: var(--base-unit)
-}
-
-.description {
-  opacity: .5;
+.project img {
+  max-width: 100%;
+  height: auto;
 }

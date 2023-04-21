@@ -1,83 +1,82 @@
 :root {
-  --font: #000;
-  --bg: #FFF;
-
-  --font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
-
-  --base-unit: 12vw;
-  --border-radius: 16px;
-  --grid-cols: 1;
+  --bg: #fff;
+  --text: #000;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --font: #FEFEFE;
-    --bg: #090909;
-  }
-}
-
-
-/* BASE */
-
-*,
-*:before,
-*:after {
-  padding: 0;
+a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video {
   margin: 0;
-  box-sizing: border-box;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline
+}
+
+*,:after,:before {
+  box-sizing: inherit
+}
+
+* {
+  -webkit-tap-highlight-color: transparent
+}
+
+:focus {
+  outline: 0
 }
 
 ::-moz-selection {
   color: var(--bg);
-  background: var(--font);
+  background: var(--text);
 }
 
 ::selection {
   color: var(--bg);
-  background: var(--font);
-}
-
-body::-webkit-scrollbar {
-  width: .5rem;
-}
- 
-body::-webkit-scrollbar-track {
-  background-color: transparent;
-}
- 
-body::-webkit-scrollbar-thumb {
-  background-color: var(--font);
+  background: var(--text);
 }
 
 html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
   scroll-behavior: smooth;
+}
+
+@media screen and (min-width: 1920px) {
+  html {
+      font-size:134%
+  }
+}
+
+@media screen and (min-width: 2340px) {
+  html {
+    font-size:189%
+  }
+}
+
+@media screen and (min-width: 3200px) {
+  html {
+    font-size:1vw
+  }
 }
 
 html, body, #__next {
   height: 100%;
 }
 
-html, body, input, textarea, button {
-  font-family: var(--font-family);
-  font-feature-settings: "rlig" 1, "calt" 1, "ss01" 1, "ss06" 1, "liga", "clig";
-}
-
-html,
 body {
-  font-size: 1rem;
-  line-height: 1.5;;
-  color: var(--font);
   background-color: var(--bg);
-  caret-color: var(--font);
+  color: var(--text);
+  line-height: 1;
+  font-size: 1.25rem;
+  line-height: 1.375rem;
 }
 
-body {
-  padding-bottom: calc(var(--base-unit) * 2)
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+  display: block
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-size: 1rem;
-  font-weight: 400;
+ol,ul {
+  list-style: none
 }
 
 a {
@@ -98,102 +97,57 @@ button {
   -webkit-appearance: none;
 }
 
-ol,ul {
-  list-style: none;
+
+/* LAYOUT */
+
+.container {
+  width: 100%;
+  position: relative;
+}
+
+.grid {
+    width: 100%;
+    padding: 0 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    position: relative;
+}
+
+@media screen and (min-width: 734px) {
+  .grid {
+    padding: 0;
+    margin: 0 4.0625rem;
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .grid {
+      margin: 0 8.125rem;
+  }
+}
+
+.grid-col-1 {
+  grid-area: 1 / 1;
+}
+
+.grid-col-2 {
+  grid-area: 1 / 2;
+}
+
+.grid-col-3 {
+  grid-area: 1 / 3;
 }
 
 
 /* LAYOUT */
 
-.container {
-  margin: 0 auto;
-  position: relative;
-  padding: var(--base-unit);
-}
-
-.container--sm {
-  max-width: 1380px;
-}
-
-.container--md {
-  max-width: 1480px;
-}
-
-.container--lg {
-  max-width: 1580px;
-}
-
-.grid {
-  display: block;
-}
-
-.grid--title {
-  grid-area: title
-}
-
-.grid--description {
-  grid-area: description;
-}
-
-.grid--link {
-  grid-area: link;
-  text-align: left;
-}
-
-
-/* HELPERS */
-
-.o--hidden {
-  overflow: hidden;
-}
-
-.d--block {
-  display: block;
-}
-
 .d--inline-block {
   display: inline-block;
 }
 
-.mb--md {
-  margin-bottom: 2rem;
-}
-
-.rounded--top {
-  border-top-left-radius: var(--border-radius);
-  border-top-right-radius: var(--border-radius);
-}
-
-.pt--0 {
-  padding-top: 0 ;
-}
-
-.p--0 {
-  padding: 0;
-}
-
-.txt--center {
-  text-align: center;
-}
-
-
-/* MEDIA QUERIES */
-
-@media (min-width: 550px) {
-  :root {
-    --base-unit: 6vh;
-    --border-radius: 2vw;
-    --grid-cols: 12;
-  }
-
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(var(--grid-cols), 1fr);
-    grid-template-areas:
-    "title . description description . . . . . . link link"
-  }
-
-  .grid--link {
-    text-align: right;
-  }
+.o--hidden {
+  overflow: hidden;
 }

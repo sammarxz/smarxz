@@ -1,37 +1,38 @@
-import { motion, useScroll, useTransform } from 'framer-motion'
+/* eslint-disable react/display-name */
+import { useContext, useState } from 'react'
+import { motion } from 'framer-motion'
 
-import { AnimatedLines, GetInTouch } from '@/components'
+import { AnimatedLines, HeaderInfo } from '@/components'
 
 import styles from './styles.module.css'
+import { AppContext } from '@/context/state'
 
 const Header = () => {
-  const { scrollYProgress } = useScroll();
-  const multiplier = useTransform(scrollYProgress, (v) => v * 5.5)
-  const inversor = useTransform(multiplier, [0,1], [1, 0])
+  const [showCounter, setShowCounter] = useState(false)
+  const {state} = useContext(AppContext)
+
+  // console.log(state)
 
   return (
-    <motion.header 
-      className={`${styles.header} grid container container--sm`}
-      style={{ opacity: inversor }}
+    <motion.div 
+      onViewportEnter={() => setShowCounter(true) }
+      onViewportLeave={() => setShowCounter(false) }
     >
-      <h1 className='grid--title mb--md'>
-        <AnimatedLines delay={0}>Sam Marxz.</AnimatedLines>
-      </h1>
-      <div className="grid--description">
-        <h2 className='mb--md'>
-          <AnimatedLines delay={1}>Designer && Web Developer.</AnimatedLines>
-        </h2>
-        <h3 className='mb--md'>
-          <AnimatedLines delay={2}>Currently working as front-end developer @TCS.</AnimatedLines>
-        </h3>
-        <h4 className='mb--md'>
-          <AnimatedLines delay={3}>Based in Brazil.</AnimatedLines>
-        </h4>
-      </div>
-      <div className='grid--link'>
-        <GetInTouch  />
-      </div>
-    </motion.header>
+      <header className={styles.header}>
+        <div className='grid'>
+          {showCounter ? (
+            <div className='grid-col-1'>
+              <h1>
+                <AnimatedLines text="Sam Marxz" />
+              </h1>
+            </div>
+            ):(
+            <h4 className='grid-col-1'>{state.counter} - {state.totalCount}</h4>
+          )}
+          <HeaderInfo />
+        </div>
+      </header>
+    </motion.div>
   )
 }
 
