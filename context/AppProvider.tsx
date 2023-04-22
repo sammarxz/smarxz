@@ -15,7 +15,7 @@ const AppProvider = (
     })
   }, [dispatch])
 
-  const setShowName = useCallback((option) => {
+  const setShowName = useCallback((option:boolean) => {
     dispatch({
       type: AppContextActions.SetShowName,
       payload: option

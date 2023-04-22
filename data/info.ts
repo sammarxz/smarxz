@@ -4,12 +4,17 @@ const info:dataType = [
   {
     text: [
       {
-        content: 'Design / Web Development',
+        content: 'Design Egineer',
         tag: 'h2',
         props: {}
       },
       {
-        content: 'Works 19 — 23',
+        content: 'Showcase',
+        tag: 'h3',
+        props: {}
+      },
+      {
+        content: '19 — 23',
         tag: 'h3',
         props: {}
       }
@@ -25,10 +30,10 @@ const info:dataType = [
         }
       },
       {
-        content: 'Links',
+        content: 'Read.cv',
         tag: 'a',
         props: {
-          href: 'https://linktr.ee/sammarxz',
+          href: 'https://read.cv/sammarxz',
           target: 'blank'
         }
       },

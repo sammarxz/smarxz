@@ -10,8 +10,6 @@ const Header = () => {
   const [showProjectTitle, setShowProjectTitle] = useState(false)
   const { state: { actualProject, showName }, setShowName } = useAppContext()
 
-  console.log(showName)
-
   return (
     <>
       <motion.div
