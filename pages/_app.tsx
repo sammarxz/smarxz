@@ -1,9 +1,10 @@
 import type { AppProps } from 'next/app'
 import localFont from 'next/font/local'
+import { Analytics } from '@vercel/analytics/react';
 
 import { AppProvider } from '@/context/AppProvider'
 
-import { Analytics } from '@/components'
+import { GoogleAnalytics } from '@/components'
 
 import '@/styles/main.css'
 
@@ -14,8 +15,9 @@ export default function App({ Component, pageProps }: AppProps) {
     <AppProvider>
       <main className={`${myFont.className} container`}>
         <>
-          <Analytics />
           <Component {...pageProps} />
+          <GoogleAnalytics />
+          <Analytics />
         </>
       </main>
     </AppProvider>

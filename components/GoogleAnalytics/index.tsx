@@ -4,7 +4,7 @@ import Script from "next/script";
 
 const TRACKING_ID = process.env.NEXT_PUBLIC_GA4_TRACKING_ID!;
 
-const Analytics = memo(() => {
+const GoogleAnalytics = memo(() => {
   const router = useRouter();
   useEffect(() => {
     if (!TRACKING_ID || router.isPreview) return;
@@ -60,6 +60,6 @@ const Analytics = memo(() => {
   );
 });
 
-Analytics.displayName = "Analytics"
+GoogleAnalytics.displayName = "GoogleAnalytics"
 
-export { Analytics }
+export { GoogleAnalytics }
