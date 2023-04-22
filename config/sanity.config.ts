@@ -1,4 +1,4 @@
-import { ClientConfig } from "next-sanity";
+import { ClientConfig, createClient } from "next-sanity";
 
 const sanityConfig:ClientConfig = {
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
@@ -7,6 +7,8 @@ const sanityConfig:ClientConfig = {
   useCdn: true
 }
 
-const projectsQuery = process.env.NEXT_PUPLIC_SANITY_QUERY as string
+const client = createClient(sanityConfig)
 
-export { sanityConfig, projectsQuery }
+const query = process.env.NEXT_PUPLIC_SANITY_QUERY as string
+
+export { client, query }

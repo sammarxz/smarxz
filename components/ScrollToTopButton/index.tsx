@@ -31,7 +31,7 @@ const ScrollToTopButton = () => {
 
   useEffect(() => {
     return scrollYProgress.on('change', (latestValue) => {
-      if (latestValue > 0.5) {
+      if (latestValue > 0.1) {
         controls.start('show');
       } else {
         controls.start('hide');
@@ -49,7 +49,6 @@ const ScrollToTopButton = () => {
       whileHover="hover"
       whileTap="tap"
     >
-      <span>Back to top</span>
       <AiOutlineArrowUp />
     </motion.button>
   );

@@ -12,8 +12,8 @@ const social = [
     link: 'https://github.com/sammarxz'
   },
   {
-    name: 'Layers',
-    link: 'https://layers.to/sammarxz'
+    name: 'Dribbble',
+    link: 'https://dribbble.com/sammarxz'
   },
   {
     name: 'Twitter',

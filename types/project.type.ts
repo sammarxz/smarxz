@@ -7,7 +7,7 @@ export type ProjectImageType = {
   _type: 'image'
 }
 
-export type ProjectsType = {
+export type ProjectType = {
   images: ProjectImageType[],
   _createdAt: string,
   _rev: string,
@@ -15,4 +15,4 @@ export type ProjectsType = {
   _id: string,
   title: string,
   _updatedAt: string
-}[];
+};

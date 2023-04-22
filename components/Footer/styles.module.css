@@ -1,6 +1,28 @@
 .footer {
-  position: fixed;
-  bottom: var(--base-unit);
-  left: 0;
-  right: 0;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  z-index: 99;
+}
+
+.footer p {
+  margin-bottom: 2rem;
+}
+
+.profile {
+  height: 100vh;
+  padding-top: 8.125rem;
+  max-width: 16rem;
+}
+
+.social {
+  position: absolute;
+  bottom: 8.125rem;
+}
+
+@media screen and (min-width: 734px) {
+  .footer {
+    flex-direction: row;
+  }
 }

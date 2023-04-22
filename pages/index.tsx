@@ -1,20 +1,17 @@
 import { useEffect } from 'react';
 import Head from 'next/head'
 import { isBrowser } from 'framer-motion';
-import { createClient } from 'next-sanity';
 
-import { projectsQuery, sanityConfig } from '@/config/sanity.config'
+import { client, query } from '@/config/sanity.config'
 
 import { Header, Projects, ScrollToTopButton, Footer } from '@/components'
 
 import { scrollToTop } from '@/utils';
 
-import { ProjectsType } from '@/types/project.type';
-
-const client = createClient(sanityConfig)
+import { ProjectType } from '@/types/project.type';
 
 type HomeProps = {
-  projects: ProjectsType[]
+  projects: ProjectType[]
 }
 
 export default function Home({ projects }: HomeProps) {
@@ -40,8 +37,6 @@ export default function Home({ projects }: HomeProps) {
       <>
         <Header />
         <Projects projects={projects} />
-        <ScrollToTopButton />
-        <div style={{ "height": "calc(var(--base-unit) * 5)" }} />
         <Footer />
       </>
     </>
@@ -49,7 +44,7 @@ export default function Home({ projects }: HomeProps) {
 }
 
 export async function getStaticProps() {
-  const projects = await client.fetch(projectsQuery)
+  const projects = await client.fetch(query)
 
   return {
     props: {

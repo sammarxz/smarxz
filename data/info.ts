@@ -25,10 +25,10 @@ const info:dataType = [
         }
       },
       {
-        content: 'Read.cv',
+        content: 'Links',
         tag: 'a',
         props: {
-          href: 'https://...',
+          href: 'https://linktr.ee/sammarxz',
           target: 'blank'
         }
       },

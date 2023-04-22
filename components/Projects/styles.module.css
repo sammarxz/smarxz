@@ -1,15 +1,3 @@
 .projects {
-  padding: 40vh .625rem 0
-}
-
-@media screen and (min-width: 734px) {
-  .projects {
-    padding: 55vh .625rem 0;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .projects {
-    padding: 90vh .625rem 0;
-  }
+  padding: 90vh .625rem 0
 }

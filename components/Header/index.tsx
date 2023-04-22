@@ -1,38 +1,50 @@
-/* eslint-disable react/display-name */
-import { useContext, useState } from 'react'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 
 import { AnimatedLines, HeaderInfo } from '@/components'
+import { useAppContext } from '@/hooks/useAppContext'
 
 import styles from './styles.module.css'
-import { AppContext } from '@/context/state'
 
 const Header = () => {
-  const [showCounter, setShowCounter] = useState(false)
-  const {state} = useContext(AppContext)
+  const [showProjectTitle, setShowProjectTitle] = useState(false)
+  const { state: { actualProject, showName }, setShowName } = useAppContext()
 
-  // console.log(state)
+  console.log(showName)
 
   return (
-    <motion.div 
-      onViewportEnter={() => setShowCounter(true) }
-      onViewportLeave={() => setShowCounter(false) }
-    >
+    <>
+      <motion.div
+        viewport={{
+          margin: '70%'
+        }}
+        onViewportLeave={() => {
+          setShowProjectTitle(true)
+          setShowName(false)
+        }}
+        onViewportEnter={() => {
+          setShowProjectTitle(false)
+          setShowName(true)
+      }}
+      />
       <header className={styles.header}>
         <div className='grid'>
-          {showCounter ? (
-            <div className='grid-col-1'>
-              <h1>
-                <AnimatedLines text="Sam Marxz" />
-              </h1>
-            </div>
-            ):(
-            <h4 className='grid-col-1'>{state.counter} - {state.totalCount}</h4>
-          )}
+          <h1 
+            className='grid-col-1'
+            style={{ opacity: showName ? 1 : 0 }}
+          >
+            <AnimatedLines text="Sam Marxz" />
+          </h1>
+          <h1
+            className='grid-col-1'
+            style={{ opacity: showProjectTitle && !showName ? 1 : 0 }}
+          >
+            { actualProject }
+          </h1>
           <HeaderInfo />
         </div>
       </header>
-    </motion.div>
+    </>
   )
 }
 

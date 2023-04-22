@@ -3,16 +3,16 @@ import localFont from 'next/font/local'
 
 import '@/styles/main.css'
 
-import { AppContextProvider } from '@/context/state'
+import { AppProvider } from '@/context/AppProvider'
 
 const myFont = localFont({ src: '../public/fonts/NeueHaasDisplayRoman.woff' })
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <main className={`${myFont.className} container`}>
-      <AppContextProvider>
+      <AppProvider>
         <Component {...pageProps} />
-      </AppContextProvider>
+      </AppProvider>
     </main>
   )
 }

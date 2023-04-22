@@ -1,24 +1,21 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { useNextSanityImage } from 'next-sanity-image'
 
-import { useClient } from '@/hooks/useClient'
+import { client } from '@/config/sanity.config'
 
-import styles from './styles.module.css'
 import { ProjectImageType } from '@/types/project.type'
 
+import styles from './styles.module.css'
+
 type ProjectProps = {
-  project: {
-    images: ProjectImageType[]
-  }
+  images: ProjectImageType[]
 }
 
-const Project = ({ project: { images }}:ProjectProps) => {
-  const { client } = useClient()
-
+const Project = ({ images }: ProjectProps) => {
   const renderImages = () => {
-    return images.map((image, index) => {
-      // eslint-disable-next-line react-hooks/rules-of-hooks
+    return images.map((image) => {
       const props = useNextSanityImage(client, image)
 
       return (
@@ -29,13 +26,10 @@ const Project = ({ project: { images }}:ProjectProps) => {
             whileInView={{ 
               opacity: 1,
               transition: {
-                duration: 1,
                 delay: 0.2
               } 
             }}
             viewport={{ once: true }}
-            // onViewportEnter={() => setCounter(arr[index])}
-            // onViewportLeave={() => setCounter(prevCount => prevCount - 1)}
           >
             <Image 
               {...props}
@@ -50,7 +44,7 @@ const Project = ({ project: { images }}:ProjectProps) => {
     })
   }
 
-  return renderImages()
+  return <>{renderImages()}</>
 }
 
 export { Project }
